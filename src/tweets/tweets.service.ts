@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTweetDto } from './dto/create-tweet.dto';
-import { UpdateTweetDto } from './dto/update-tweet.dto';
 import { Tweet } from './entities/tweet.entity';
 import { InjectModel } from '@nestjs/sequelize';
 
@@ -12,7 +11,7 @@ export class TweetsService {
   ) {}
 
   create(createTweetDto: CreateTweetDto) {
-    return this.tweetModel.create(CreateTweetDto as any);
+    return this.tweetModel.create(createTweetDto as any);
   }
 
   findAll() {
@@ -23,7 +22,7 @@ export class TweetsService {
     return `This action returns a #${id} tweet`;
   }
 
-  update(id: number, updateTweetDto: UpdateTweetDto) {
+  update(id: number) {
     return `This action updates a #${id} tweet`;
   }
 
